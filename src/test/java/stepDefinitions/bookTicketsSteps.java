@@ -1,14 +1,26 @@
 package stepDefinitions;
 
+import Utility.browserUtil;
+import Utility.userInputFile;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 
-public class bookTicketsSteps {
+
+public class bookTicketsSteps extends userInputFile {
+
+   private WebDriver driver;
 
     @Given("^User has Logged in successfully with proper login details$")
     public void user_has_logged_in_successfully_with_proper_login_details() {
-        
+
+        driver = browserUtil.browserSetup("chrome");
+        driver.get("https://www.irctc.co.in/nget/train-search");
+        driver.manage().deleteAllCookies();
+        driver.manage().window().maximize();
+        driver.findElement(By.xpath(""));
     }
 
     @Given("closed popup of last transaction details if open")
